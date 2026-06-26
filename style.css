@@ -54,6 +54,10 @@ body.invite-locked {
     display: none !important;
 }
 
+.wedding-site.show-title-no .title {
+    display: none !important;
+}
+
 /* =========================
    HERO
 ========================== */
