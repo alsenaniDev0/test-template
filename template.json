@@ -1,183 +1,323 @@
 {
-    "id": "royal-wedding",
-    "name": "دعوة زفاف ملكية",
-    "version": "1.0.0",
-    "schemaVersion": "1.0.0",
-    "type": "custom",
-    "language": "ar",
-    "direction": "rtl",
-    "html": "index.html",
-    "css": "style.css",
-    "fields": [
+  "id": "test-template",
+  "name": "قالب اختبار شامل",
+  "version": "2.0.0",
+  "schemaVersion": "1.0.0",
+  "description": "قالب اختبار نظيف يغطي أهم خصائص Safhat: الحقول، الألوان، الخطوط، الخريطة، الصوت، RSVP والمشاعر.",
+  "type": "custom",
+  "category": "testing",
+  "language": "ar",
+  "direction": "rtl",
+  "html": "index.html",
+  "css": "style.css",
+  "assetsBaseUrl": "",
+  "thumbnail": "preview/1.png",
+  "previewImage": "preview/1.png",
+  "tags": [
+    "test",
+    "wedding",
+    "features",
+    "rtl"
+  ],
+  "status": "active",
+  "isPremium": false,
+  "fields": [
+    {
+      "key": "showIcon",
+      "label": "إظهار الأيقونة",
+      "type": "select",
+      "formTab": "design",
+      "group": "visibility",
+      "required": true,
+      "defaultValue": "yes",
+      "options": [
         {
-            "key": "showIcon",
-            "label": "إظهار الأيقونة",
-            "type": "select",
-            "formTab": "design",
-            "group": "visibility",
-            "required": true,
-            "defaultValue": "yes",
-            "options": [
-                {
-                    "label": "نعم",
-                    "value": "yes"
-                },
-                {
-                    "label": "لا",
-                    "value": "no"
-                }
-            ],
-            "width": "half"
+          "label": "نعم",
+          "value": "yes"
         },
         {
-            "type": "icon",
-            "label": "الأيقونة",
-            "key": "icon",
-            "options": [
-                {
-                    "value": "💍",
-                    "label": "💍"
-                },
-                {
-                    "value": "🤍",
-                    "label": "🤍"
-                },
-                {
-                    "value": "✨",
-                    "label": "✨"
-                },
-                {
-                    "value": "🌿",
-                    "label": "🌿"
-                }
-            ],
-            "defaultValue": "💍",
-            "required": true,
-            "visibleWhen": {
-                "field": "showIcon",
-                "equals": "yes"
-            },
-            "requiredWhen": {
-                "field": "showIcon",
-                "equals": "yes"
-            }
-        },
-        {
-            "key": "showTitle",
-            "label": "إظهار عنوان الدعوة",
-            "type": "select",
-            "formTab": "data",
-            "group": "visibility",
-            "required": true,
-            "defaultValue": "yes",
-            "options": [
-                {
-                    "label": "نعم",
-                    "value": "yes"
-                },
-                {
-                    "label": "لا",
-                    "value": "no"
-                }
-            ],
-            "width": "half"
-        },
-        {
-            "defaultValue": "دعوة زواج",
-            "required": true,
-            "key": "title",
-            "maxLength": 60,
-            "label": "عنوان الدعوة",
-            "type": "text",
-            "visibleWhen": {
-                "field": "showTitle",
-                "equals": "yes"
-            },
-            "requiredWhen": {
-                "field": "showTitle",
-                "equals": "yes"
-            }
-        },
-        {
-            "minLength": 10,
-            "key": "message",
-            "label": "نص الدعوة",
-            "maxLength": 220,
-            "type": "textarea",
-            "defaultValue": "بكل الحب والسرور نتشرف بدعوتكم لمشاركتنا فرحة زواجنا",
-            "required": true
-        },
-        {
-            "key": "names",
-            "label": "أسماء العروسين",
-            "type": "names",
-            "placeholder": "مثال: محمد",
-            "minItems": 2,
-            "required": true,
-            "separator": " و ",
-            "maxItems": 2,
-            "designControls": {
-                "font": {
-                    "enabled": true,
-                    "label": "خط أسماء العروسين",
-                    "selector": ".hero-names"
-                }
-            }
-        },
-        {
-            "type": "date",
-            "required": true,
-            "label": "تاريخ الحفل",
-            "key": "date"
-        },
-        {
-            "type": "time",
-            "key": "time",
-            "label": "وقت الحفل",
-            "defaultValue": "20:00"
-        },
-        {
-            "hint": "اضغط لاختيار الموقع من Google Map",
-            "required": true,
-            "key": "location",
-            "label": "الموقع",
-            "type": "map",
-            "placeholder": "اختر الموقع من الخريطة"
-        },
-        {
-            "defaultValue": "حضوركم يتمم فرحتنا ويزيد ليلتنا جمالاً",
-            "required": true,
-            "minLength": 5,
-            "type": "textarea",
-            "label": "رسالة الختام",
-            "key": "closing",
-            "maxLength": 180
-        },
-        {
-            "hint": "ضع رابط YouTube وسيعمل كصوت للخلفية بعد فتح الدعوة",
-            "patternMessage": "الرابط يجب أن يبدأ بـ http أو https",
-            "pattern": "^https?:\\/\\/.+",
-            "label": "رابط YouTube للصوت",
-            "key": "soundUrl",
-            "placeholder": "https://youtu.be/...",
-            "type": "youtube"
+          "label": "لا",
+          "value": "no"
         }
-    ],
-    "features": {
-        "feelings": {
-            "enabled": true,
-            "approvalMode": "manual",
-            "preventDuplicate": true,
-            "rateLimitMinutes": 5,
-            "title": "شارك مشاعرك",
-            "description": "اكتب رسالة جميلة لأصحاب الدعوة"
+      ],
+      "width": "half"
+    },
+    {
+      "key": "icon",
+      "label": "الأيقونة",
+      "type": "icon",
+      "formTab": "design",
+      "group": "hero",
+      "required": true,
+      "defaultValue": "💍",
+      "options": [
+        {
+          "label": "💍",
+          "value": "💍"
         },
-        "rsvp": {
-            "enabled": true,
-            "preventDuplicate": true,
-            "nameRequired": false,
-            "title": "هل ستحضر؟",
-            "description": "يسعدنا معرفة حضورك للمناسبة"
+        {
+          "label": "👑",
+          "value": "👑"
+        },
+        {
+          "label": "💐",
+          "value": "💐"
+        },
+        {
+          "label": "✨",
+          "value": "✨"
         }
+      ],
+      "visibleWhen": {
+        "field": "showIcon",
+        "equals": "yes"
+      },
+      "requiredWhen": {
+        "field": "showIcon",
+        "equals": "yes"
+      },
+      "width": "half"
+    },
+    {
+      "key": "showTitle",
+      "label": "إظهار عنوان الدعوة",
+      "type": "select",
+      "formTab": "design",
+      "group": "visibility",
+      "required": true,
+      "defaultValue": "yes",
+      "options": [
+        {
+          "label": "نعم",
+          "value": "yes"
+        },
+        {
+          "label": "لا",
+          "value": "no"
+        }
+      ],
+      "width": "half"
+    },
+    {
+      "key": "title",
+      "label": "عنوان الدعوة",
+      "type": "text",
+      "formTab": "data",
+      "group": "content",
+      "required": true,
+      "defaultValue": "دعوة زفاف",
+      "placeholder": "مثال: دعوة زفاف",
+      "minLength": 3,
+      "maxLength": 60,
+      "trim": true,
+      "sanitize": true,
+      "visibleWhen": {
+        "field": "showTitle",
+        "equals": "yes"
+      },
+      "requiredWhen": {
+        "field": "showTitle",
+        "equals": "yes"
+      },
+      "width": "full",
+      "designControls": {
+        "font": {
+          "enabled": true,
+          "label": "خط عنوان الدعوة",
+          "selector": ".hero-title"
+        }
+      }
+    },
+    {
+      "key": "message",
+      "label": "نص الدعوة",
+      "type": "textarea",
+      "formTab": "data",
+      "group": "content",
+      "required": true,
+      "defaultValue": "بكل الحب والسرور نتشرف بدعوتكم لمشاركتنا فرحة زواجنا",
+      "placeholder": "اكتب نص الدعوة",
+      "rows": 4,
+      "minLength": 10,
+      "maxLength": 240,
+      "trim": true,
+      "sanitize": true,
+      "width": "full"
+    },
+    {
+      "key": "names",
+      "label": "أسماء العروسين",
+      "type": "names",
+      "formTab": "data",
+      "group": "people",
+      "required": true,
+      "placeholder": "مثال: محمد",
+      "minItems": 2,
+      "maxItems": 2,
+      "separator": " و ",
+      "width": "full",
+      "designControls": {
+        "font": {
+          "enabled": true,
+          "label": "خط أسماء العروسين",
+          "selector": ".hero-names"
+        }
+      }
+    },
+    {
+      "key": "date",
+      "label": "تاريخ المناسبة",
+      "type": "date",
+      "formTab": "data",
+      "group": "event",
+      "required": true,
+      "defaultValue": "2026-12-31",
+      "width": "half"
+    },
+    {
+      "key": "time",
+      "label": "وقت المناسبة",
+      "type": "time",
+      "formTab": "data",
+      "group": "event",
+      "required": false,
+      "defaultValue": "20:00",
+      "width": "half"
+    },
+    {
+      "key": "location",
+      "label": "الموقع",
+      "type": "map",
+      "formTab": "data",
+      "group": "event",
+      "required": true,
+      "defaultValue": "Riyadh, Saudi Arabia",
+      "placeholder": "اختر الموقع من الخريطة",
+      "hint": "استخدم {{location}} لاسم الموقع و {{locationUrl}} للرابط.",
+      "width": "full"
+    },
+    {
+      "key": "showCountdown",
+      "label": "إظهار العد التنازلي",
+      "type": "select",
+      "formTab": "design",
+      "group": "visibility",
+      "required": true,
+      "defaultValue": "yes",
+      "options": [
+        {
+          "label": "نعم",
+          "value": "yes"
+        },
+        {
+          "label": "لا",
+          "value": "no"
+        }
+      ],
+      "width": "half"
+    },
+    {
+      "key": "showSound",
+      "label": "تفعيل صوت YouTube",
+      "type": "select",
+      "formTab": "design",
+      "group": "media",
+      "required": true,
+      "defaultValue": "no",
+      "options": [
+        {
+          "label": "نعم",
+          "value": "yes"
+        },
+        {
+          "label": "لا",
+          "value": "no"
+        }
+      ],
+      "width": "half"
+    },
+    {
+      "key": "soundUrl",
+      "label": "رابط YouTube للصوت",
+      "type": "youtube",
+      "formTab": "data",
+      "group": "media",
+      "required": false,
+      "defaultValue": "",
+      "placeholder": "https://youtu.be/...",
+      "hint": "ضع رابط YouTube وسيتم تشغيله بعد فتح الدعوة.",
+      "patternMessage": "الرابط يجب أن يبدأ بـ http أو https",
+      "pattern": "^https?:\\/\\/.+",
+      "visibleWhen": {
+        "field": "showSound",
+        "equals": "yes"
+      },
+      "width": "full"
+    },
+    {
+      "key": "themeColors",
+      "label": "ألوان التصميم",
+      "type": "colors",
+      "formTab": "design",
+      "group": "colors",
+      "required": false,
+      "defaultValue": {
+        "primary": "#7d8f72",
+        "accent": "#d7b98c",
+        "background": "#fbf6ef",
+        "text": "#3f342d"
+      },
+      "options": [
+        {
+          "label": "الرئيسي",
+          "value": "primary"
+        },
+        {
+          "label": "التمييز",
+          "value": "accent"
+        },
+        {
+          "label": "الخلفية",
+          "value": "background"
+        },
+        {
+          "label": "النص",
+          "value": "text"
+        }
+      ],
+      "width": "full"
+    },
+    {
+      "key": "closing",
+      "label": "رسالة الختام",
+      "type": "textarea",
+      "formTab": "data",
+      "group": "content",
+      "required": true,
+      "defaultValue": "حضوركم يتمم فرحتنا ويزيد ليلتنا جمالاً",
+      "placeholder": "اكتب رسالة الختام",
+      "minLength": 5,
+      "maxLength": 180,
+      "trim": true,
+      "sanitize": true,
+      "width": "full"
     }
+  ],
+  "features": {
+    "feelings": {
+      "enabled": true,
+      "approvalMode": "manual",
+      "preventDuplicate": true,
+      "rateLimitMinutes": 5,
+      "title": "شارك مشاعرك",
+      "description": "اكتب رسالة جميلة لأصحاب الدعوة"
+    },
+    "rsvp": {
+      "enabled": true,
+      "preventDuplicate": true,
+      "nameRequired": false,
+      "title": "هل ستحضر؟",
+      "description": "يسعدنا معرفة حضورك للمناسبة"
+    }
+  }
 }

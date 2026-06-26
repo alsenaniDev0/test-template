@@ -1,94 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="ar" dir="rtl">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <main class="wedding-site invite-hidden show-icon-{{showIcon}} show-title-{{showTitle}}"">
+    <main class="test-template show-icon-{{showIcon}} show-title-{{showTitle}} show-countdown-{{showCountdown}} show-sound-{{showSound}}">
+        <section class="sound-gate" data-youtube-audio data-youtube-src="{{soundUrl}}">
+            <iframe class="youtube-hidden-player" title="YouTube audio player" allow="autoplay; encrypted-media"></iframe>
 
-        <div class=" youtube-audio-box" data-youtube-audio data-youtube-src="{{soundUrl}}">
-        <iframe class="youtube-hidden-player" title="YouTube audio player" allow="autoplay; encrypted-media">
-        </iframe>
-
-        <div class="sound-overlay" data-open-invite>
-            <div class="sound-overlay-card">
-                <div class="sound-icon">💍</div>
-
-                <span class="overlay-small-title">دعوة خاصة</span>
-
-                <h2 class="title">{{title}}</h2>
-
-                <p>
-                    اضغط لفتح الدعوة ومشاركة أجمل اللحظات
-                </p>
-
-                <button type="button" class="sound-start-btn">
-                    فتح الدعوة
-                </button>
-
-                <small class="tap-hint">اضغط في أي مكان للفتح</small>
-            </div>
-        </div>
-
-        <button type="button" class="sound-toggle-btn" aria-label="Mute sound">
-            🔊
-        </button>
-        </div>
-
-        <section class="hero">
-            <div class="soft-orb orb-one"></div>
-            <div class="soft-orb orb-two"></div>
-
-            <div class="hero-card">
-                <div class="top-label">{{title}}</div>
-
-                <div class="rings">{{icon}}</div>
-
-                <p class="message">{{message}}</p>
-
-                <h1 class="hero-names">{{names}}</h1>
-
-                <div class="divider">
-                    <span></span>
-                    <small>معاً نبدأ الحكاية</small>
-                    <span></span>
-                </div>
-
-                <div class="wedding-date">
-                    <span>📅</span>
-                    <strong>{{date}}</strong>
+            <div class="sound-overlay" data-open-invite>
+                <div class="sound-overlay-card">
+                    <span class="overlay-icon">{{icon}}</span>
+                    <small>دعوة خاصة</small>
+                    <h2>{{title}}</h2>
+                    <p>اضغط لفتح الدعوة ومشاركة أجمل اللحظات</p>
+                    <button type="button" class="sound-start-btn">فتح الدعوة</button>
                 </div>
             </div>
+
+            <button type="button" class="sound-toggle-btn" aria-label="تشغيل أو إيقاف الصوت">🔊</button>
         </section>
 
-        <section id="countdown" class="countdown-section">
+        <section class="hero-section" data-section="hero">
+            <div class="hero-decoration decoration-one"></div>
+            <div class="hero-decoration decoration-two"></div>
+
+            <article class="hero-card">
+                <span class="hero-kicker">بكل الحب والسرور</span>
+                <div class="hero-icon">{{icon}}</div>
+                <h1 class="hero-title">{{title}}</h1>
+                <p class="hero-message">{{message}}</p>
+                <p class="hero-names">{{names}}</p>
+
+                <div class="hero-divider" aria-hidden="true">
+                    <span></span>
+                    <strong>معاً نبدأ الحكاية</strong>
+                    <span></span>
+                </div>
+
+                <div class="hero-date">
+                    <span>📅</span>
+                    <strong>{{date}}</strong>
+                    <small>{{time}}</small>
+                </div>
+            </article>
+        </section>
+
+        <section class="countdown-section" data-section="countdown">
             <div class="section-heading">
                 <span>باقي على المناسبة</span>
                 <h2>ننتظر حضوركم بكل حب</h2>
             </div>
 
-            <div class="countdown" data-countdown data-date="{{date}}" data-time="{{time}}">
-
+            <div class="countdown-grid" data-countdown data-date="{{date}}" data-time="{{time}}">
                 <div class="time-box">
                     <strong data-days>00</strong>
                     <span>يوم</span>
                 </div>
-
                 <div class="time-box">
                     <strong data-hours>00</strong>
                     <span>ساعة</span>
                 </div>
-
                 <div class="time-box">
                     <strong data-minutes>00</strong>
                     <span>دقيقة</span>
                 </div>
-
                 <div class="time-box">
                     <strong data-seconds>00</strong>
                     <span>ثانية</span>
@@ -96,39 +77,36 @@
             </div>
         </section>
 
-        <section class="details">
-            <div class="detail">
-                <div class="detail-icon">📅</div>
+        <section class="details-section" data-section="details">
+            <article class="detail-card">
+                <span>📅</span>
                 <small>التاريخ</small>
                 <strong>{{date}}</strong>
-            </div>
+            </article>
 
-            <div class="detail">
-                <div class="detail-icon">⏰</div>
+            <article class="detail-card">
+                <span>⏰</span>
                 <small>الوقت</small>
                 <strong>{{time}}</strong>
-            </div>
+            </article>
 
-            <div class="detail location-card">
-                <div class="detail-icon">📍</div>
+            <article class="detail-card location-card">
+                <span>📍</span>
                 <small>الموقع</small>
                 <strong>{{location}}</strong>
-
-                <a class="map-link" href="{{locationUrl}}" target="_top" rel="noopener noreferrer">
-                    فتح الموقع
-                </a>
-            </div>
+                <a href="{{locationUrl}}" target="_top" rel="noopener noreferrer">فتح الموقع</a>
+            </article>
         </section>
 
         <section class="rsvp-section" data-feature="rsvp">
             <div class="section-heading">
                 <span>تأكيد الحضور</span>
-                <h2>هل ستحضر؟</h2>
+                <h2>هل ستشاركنا هذه المناسبة؟</h2>
                 <p>يسعدنا معرفة حضورك للمناسبة</p>
             </div>
 
             <div class="interaction-card">
-                <input class="interaction-input" type="text" placeholder="اكتب اسمك" maxlength="60" data-rsvp-name>
+                <input class="interaction-input" type="text" placeholder="اكتب اسمك" maxlength="60" data-rsvp-name />
 
                 <div class="rsvp-options">
                     <button type="button" class="rsvp-option attending" data-rsvp-status="attending">
@@ -151,7 +129,7 @@
             </div>
         </section>
 
-        <section class="feelings-section" data-feature="feelings">
+        <section class="feelings-section" data-feature="feelings" data-approval-mode="manual" data-prevent-duplicate="true" data-rate-limit-minutes="5">
             <div class="section-heading">
                 <span>شارك مشاعرك</span>
                 <h2>اترك رسالة جميلة</h2>
@@ -163,10 +141,9 @@
                     تنبيه: رسالتك لن تظهر مباشرة، وستحتاج موافقة صاحب الدعوة قبل نشرها للزوار.
                 </p>
 
-                <input class="interaction-input" type="text" placeholder="اسمك" maxlength="60" data-feeling-name>
+                <input class="interaction-input" type="text" placeholder="اسمك" maxlength="60" data-feeling-name />
 
-                <textarea class="interaction-textarea" placeholder="اكتب رسالتك هنا..." maxlength="220"
-                    data-feeling-message></textarea>
+                <textarea class="interaction-textarea" placeholder="اكتب رسالتك هنا..." maxlength="220" rows="4" data-feeling-message></textarea>
 
                 <button type="button" class="interaction-submit" data-send-feeling>
                     إرسال الرسالة
@@ -175,197 +152,173 @@
                 <p class="interaction-message" data-feeling-result></p>
             </div>
 
-            <div class="feelings-list" data-feelings-list>
-            </div>
+            <div class="feelings-list" data-feelings-list></div>
         </section>
 
-        <section class="closing">
-            <div class="closing-card">
-                <span class="closing-icon">🤍</span>
+        <section class="closing-section" data-section="closing">
+            <article class="closing-card">
+                <span>🤍</span>
                 <h2>{{closing}}</h2>
                 <p>{{title}}</p>
-            </div>
+            </article>
         </section>
+    </main>
 
-        <script>
-            (function () {
-                var body = document.body;
-                var site = document.querySelector('.wedding-site');
+    <script>
+        (function () {
+            var root = document.querySelector('.test-template');
+            if (!root) return;
 
-                body.classList.add('invite-locked');
+            /* Countdown preview helper */
+            var countdown = root.querySelector('[data-countdown]');
+            if (countdown) {
+                var dateValue = countdown.getAttribute('data-date');
+                var timeValue = countdown.getAttribute('data-time') || '20:00';
 
-                if (site) {
-                    site.classList.add('invite-hidden');
+                if (!timeValue || timeValue.indexOf('{{') === 0) {
+                    timeValue = '20:00';
                 }
 
-                /* =========================
-                   COUNTDOWN
-                ========================== */
-                var countdown = document.querySelector('[data-countdown]');
+                var targetDate = new Date(dateValue + 'T' + timeValue);
+                var daysEl = countdown.querySelector('[data-days]');
+                var hoursEl = countdown.querySelector('[data-hours]');
+                var minutesEl = countdown.querySelector('[data-minutes]');
+                var secondsEl = countdown.querySelector('[data-seconds]');
 
-                if (countdown) {
-                    var dateValue = countdown.getAttribute('data-date');
-                    var timeValue = countdown.getAttribute('data-time');
+                function pad(value) {
+                    return String(value).padStart(2, '0');
+                }
 
-                    if (!timeValue || timeValue.trim() === '' || timeValue.indexOf('{{') === 0) {
-                        timeValue = '20:00';
+                function updateCountdown() {
+                    if (!dateValue || dateValue.indexOf('{{') === 0 || isNaN(targetDate.getTime())) {
+                        countdown.style.display = 'none';
+                        return;
                     }
 
-                    var targetDate = new Date(dateValue + 'T' + timeValue);
+                    var distance = targetDate.getTime() - Date.now();
+                    if (distance <= 0) distance = 0;
 
-                    var daysEl = countdown.querySelector('[data-days]');
-                    var hoursEl = countdown.querySelector('[data-hours]');
-                    var minutesEl = countdown.querySelector('[data-minutes]');
-                    var secondsEl = countdown.querySelector('[data-seconds]');
-
-                    function pad(value) {
-                        return String(value).padStart(2, '0');
-                    }
-
-                    function updateCountdown() {
-                        if (!dateValue || dateValue.indexOf('{{') === 0 || isNaN(targetDate.getTime())) {
-                            countdown.style.display = 'none';
-                            return;
-                        }
-
-                        var now = new Date();
-                        var distance = targetDate.getTime() - now.getTime();
-
-                        if (distance <= 0) {
-                            daysEl.textContent = '00';
-                            hoursEl.textContent = '00';
-                            minutesEl.textContent = '00';
-                            secondsEl.textContent = '00';
-                            return;
-                        }
-
-                        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                        var hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-                        var minutes = Math.floor((distance / (1000 * 60)) % 60);
-                        var seconds = Math.floor((distance / 1000) % 60);
-
-                        daysEl.textContent = pad(days);
-                        hoursEl.textContent = pad(hours);
-                        minutesEl.textContent = pad(minutes);
-                        secondsEl.textContent = pad(seconds);
-                    }
-
-                    updateCountdown();
-                    setInterval(updateCountdown, 1000);
+                    daysEl.textContent = pad(Math.floor(distance / 86400000));
+                    hoursEl.textContent = pad(Math.floor(distance / 3600000) % 24);
+                    minutesEl.textContent = pad(Math.floor(distance / 60000) % 60);
+                    secondsEl.textContent = pad(Math.floor(distance / 1000) % 60);
                 }
 
-                /* =========================
-                   YOUTUBE AUDIO + OVERLAY
-                ========================== */
-                var box = document.querySelector('[data-youtube-audio]');
-                if (!box) return;
+                updateCountdown();
+                setInterval(updateCountdown, 1000);
+            }
 
-                var iframe = box.querySelector('iframe');
-                var overlay = box.querySelector('.sound-overlay');
-                var startButton = box.querySelector('.sound-start-btn');
-                var toggleButton = box.querySelector('.sound-toggle-btn');
-                var rawUrl = box.getAttribute('data-youtube-src');
+            /* Feelings notice helper. Safhat handles actual saving in parent app. */
+            var feelingsSection = root.querySelector('[data-feature="feelings"]');
+            var notice = feelingsSection ? feelingsSection.querySelector('[data-feeling-notice]') : null;
 
-                if (!iframe || !overlay || !startButton || !toggleButton) return;
+            if (feelingsSection && notice) {
+                function updateFeelingNotice() {
+                    var approvalMode = feelingsSection.getAttribute('data-approval-mode');
+                    if (!approvalMode || approvalMode.indexOf('{{') === 0) approvalMode = 'manual';
 
-                function getYoutubeId(url) {
-                    if (!url || url.trim() === '' || url.indexOf('{{') === 0) return '';
-
-                    var patterns = [
-                        /youtu\.be\/([^?&]+)/,
-                        /youtube\.com\/watch\?v=([^?&]+)/,
-                        /youtube\.com\/embed\/([^?&]+)/,
-                        /youtube\.com\/shorts\/([^?&]+)/
-                    ];
-
-                    for (var i = 0; i < patterns.length; i++) {
-                        var match = url.match(patterns[i]);
-                        if (match && match[1]) return match[1];
-                    }
-
-                    return '';
+                    notice.textContent = approvalMode === 'auto'
+                        ? 'رسالتك ستظهر مباشرة بعد الإرسال.'
+                        : 'تنبيه: رسالتك لن تظهر مباشرة، وستحتاج موافقة صاحب الدعوة قبل نشرها للزوار.';
                 }
 
-                var videoId = getYoutubeId(rawUrl);
-                var hasSound = !!videoId;
-                var isPlaying = false;
+                updateFeelingNotice();
 
-                if (hasSound) {
-                    iframe.src = 'https://www.youtube.com/embed/' + videoId + '?enablejsapi=1&playsinline=1&rel=0&autoplay=0';
-                } else {
-                    toggleButton.style.display = 'none';
+                new MutationObserver(updateFeelingNotice).observe(feelingsSection, {
+                    attributes: true,
+                    attributeFilter: ['data-approval-mode']
+                });
+            }
+
+            /* YouTube sound preview helper. */
+            if (root.classList.contains('show-sound-no')) {
+                root.classList.add('is-open');
+                document.body.classList.remove('invite-locked');
+                return;
+            }
+
+            var audioBox = root.querySelector('[data-youtube-audio]');
+            if (!audioBox) return;
+
+            var iframe = audioBox.querySelector('iframe');
+            var overlay = audioBox.querySelector('[data-open-invite]');
+            var startButton = audioBox.querySelector('.sound-start-btn');
+            var toggleButton = audioBox.querySelector('.sound-toggle-btn');
+            var rawUrl = audioBox.getAttribute('data-youtube-src');
+            var isPlaying = false;
+
+            function getYoutubeId(url) {
+                if (!url || url.indexOf('{{') === 0) return '';
+
+                var patterns = [
+                    /youtu\.be\/([^?&]+)/,
+                    /youtube\.com\/watch\?v=([^?&]+)/,
+                    /youtube\.com\/embed\/([^?&]+)/,
+                    /youtube\.com\/shorts\/([^?&]+)/
+                ];
+
+                for (var i = 0; i < patterns.length; i++) {
+                    var match = url.match(patterns[i]);
+                    if (match && match[1]) return match[1];
                 }
 
-                function sendCommand(command) {
-                    if (!hasSound) return;
-                    if (!iframe.contentWindow) return;
+                return '';
+            }
 
-                    iframe.contentWindow.postMessage(JSON.stringify({
-                        event: 'command',
-                        func: command,
-                        args: []
-                    }), '*');
-                }
+            var videoId = getYoutubeId(rawUrl);
+            if (videoId && iframe) {
+                iframe.src = 'https://www.youtube.com/embed/' + videoId + '?enablejsapi=1&playsinline=1&rel=0&autoplay=0';
+            } else if (toggleButton) {
+                toggleButton.hidden = true;
+                root.classList.add('is-open');
+                document.body.classList.remove('invite-locked');
+                if (overlay) overlay.classList.add('is-hidden');
+            }
 
-                function playSound() {
-                    if (!hasSound) return;
+            function sendCommand(command) {
+                if (!videoId || !iframe || !iframe.contentWindow) return;
+                iframe.contentWindow.postMessage(JSON.stringify({
+                    event: 'command',
+                    func: command,
+                    args: []
+                }), '*');
+            }
 
-                    sendCommand('unMute');
-                    sendCommand('playVideo');
+            function openInvite() {
+                if (overlay) overlay.classList.add('is-hidden');
+                root.classList.add('is-open');
+                document.body.classList.remove('invite-locked');
+                sendCommand('playVideo');
+                sendCommand('unMute');
+                isPlaying = true;
+            }
 
-                    isPlaying = true;
-                    toggleButton.textContent = '🔊';
-                }
+            document.body.classList.add('invite-locked');
+            root.classList.remove('is-open');
 
-                function pauseSound() {
-                    if (!hasSound) return;
-
-                    sendCommand('pauseVideo');
-
-                    isPlaying = false;
-                    toggleButton.textContent = '🔇';
-                }
-
-                function openInvite() {
-                    if (overlay.classList.contains('hide')) return;
-
-                    overlay.classList.add('hide');
-
-                    setTimeout(function () {
-                        body.classList.remove('invite-locked');
-
-                        if (site) {
-                            site.classList.remove('invite-hidden');
-                        }
-                    }, 250);
-
-                    setTimeout(function () {
-                        box.classList.add('sound-started');
-                    }, 650);
-
-                    setTimeout(playSound, 500);
-                    setTimeout(playSound, 1000);
-                    setTimeout(playSound, 1600);
-                }
-
-                overlay.addEventListener('click', openInvite);
-
+            if (overlay) overlay.addEventListener('click', openInvite);
+            if (startButton) {
                 startButton.addEventListener('click', function (event) {
                     event.stopPropagation();
                     openInvite();
                 });
+            }
 
+            if (toggleButton) {
                 toggleButton.addEventListener('click', function () {
                     if (isPlaying) {
-                        pauseSound();
+                        sendCommand('pauseVideo');
+                        toggleButton.textContent = '🔇';
                     } else {
-                        playSound();
+                        sendCommand('playVideo');
+                        toggleButton.textContent = '🔊';
                     }
-                });
-            })();
-        </script>
 
-    </main>
+                    isPlaying = !isPlaying;
+                });
+            }
+        })();
+    </script>
 </body>
 
 </html>
