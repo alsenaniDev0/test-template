@@ -1,6 +1,6 @@
 {
-    "id": "test-template",
-    "name": "قالب تجريبي",
+    "id": "royal-wedding",
+    "name": "دعوة زفاف ملكية",
     "version": "1.0.0",
     "schemaVersion": "1.0.0",
     "type": "custom",
@@ -66,7 +66,7 @@
             "key": "showTitle",
             "label": "إظهار عنوان الدعوة",
             "type": "select",
-            "formTab": "design",
+            "formTab": "data",
             "group": "visibility",
             "required": true,
             "defaultValue": "yes",
