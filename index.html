@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="wedding-site invite-hidden show-icon-{{showIcon}} show-title-{{showTitle}}"">
+
+        <div class=" youtube-audio-box" data-youtube-audio data-youtube-src="{{soundUrl}}">
+        <iframe class="youtube-hidden-player" title="YouTube audio player" allow="autoplay; encrypted-media">
+        </iframe>
+
+        <div class="sound-overlay" data-open-invite>
+            <div class="sound-overlay-card">
+                <div class="sound-icon">💍</div>
+
+                <span class="overlay-small-title">دعوة خاصة</span>
+
+                <h2>{{title}}</h2>
+
+                <p>
+                    اضغط لفتح الدعوة ومشاركة أجمل اللحظات
+                </p>
+
+                <button type="button" class="sound-start-btn">
+                    فتح الدعوة
+                </button>
+
+                <small class="tap-hint">اضغط في أي مكان للفتح</small>
+            </div>
+        </div>
+
+        <button type="button" class="sound-toggle-btn" aria-label="Mute sound">
+            🔊
+        </button>
+        </div>
+
+        <section class="hero">
+            <div class="soft-orb orb-one"></div>
+            <div class="soft-orb orb-two"></div>
+
+            <div class="hero-card">
+                <div class="top-label">{{title}}</div>
+
+                <div class="rings">{{icon}}</div>
+
+                <p class="message">{{message}}</p>
+
+                <h1 class="hero-names">{{names}}</h1>
+
+                <div class="divider">
+                    <span></span>
+                    <small>معاً نبدأ الحكاية</small>
+                    <span></span>
+                </div>
+
+                <div class="wedding-date">
+                    <span>📅</span>
+                    <strong>{{date}}</strong>
+                </div>
+            </div>
+        </section>
+
+        <section id="countdown" class="countdown-section">
+            <div class="section-heading">
+                <span>باقي على المناسبة</span>
+                <h2>ننتظر حضوركم بكل حب</h2>
+            </div>
+
+            <div class="countdown" data-countdown data-date="{{date}}" data-time="{{time}}">
+
+                <div class="time-box">
+                    <strong data-days>00</strong>
+                    <span>يوم</span>
+                </div>
+
+                <div class="time-box">
+                    <strong data-hours>00</strong>
+                    <span>ساعة</span>
+                </div>
+
+                <div class="time-box">
+                    <strong data-minutes>00</strong>
+                    <span>دقيقة</span>
+                </div>
+
+                <div class="time-box">
+                    <strong data-seconds>00</strong>
+                    <span>ثانية</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="details">
+            <div class="detail">
+                <div class="detail-icon">📅</div>
+                <small>التاريخ</small>
+                <strong>{{date}}</strong>
+            </div>
+
+            <div class="detail">
+                <div class="detail-icon">⏰</div>
+                <small>الوقت</small>
+                <strong>{{time}}</strong>
+            </div>
+
+            <div class="detail location-card">
+                <div class="detail-icon">📍</div>
+                <small>الموقع</small>
+                <strong>{{location}}</strong>
+
+                <a class="map-link" href="{{locationUrl}}" target="_top" rel="noopener noreferrer">
+                    فتح الموقع
+                </a>
+            </div>
+        </section>
+
+        <section class="rsvp-section" data-feature="rsvp">
+            <div class="section-heading">
+                <span>تأكيد الحضور</span>
+                <h2>هل ستحضر؟</h2>
+                <p>يسعدنا معرفة حضورك للمناسبة</p>
+            </div>
+
+            <div class="interaction-card">
+                <input class="interaction-input" type="text" placeholder="اكتب اسمك" maxlength="60" data-rsvp-name>
+
+                <div class="rsvp-options">
+                    <button type="button" class="rsvp-option attending" data-rsvp-status="attending">
+                        <span>✅</span>
+                        <strong>سأحضر</strong>
+                    </button>
+
+                    <button type="button" class="rsvp-option not-attending" data-rsvp-status="not_attending">
+                        <span>❎</span>
+                        <strong>لن أحضر</strong>
+                    </button>
+
+                    <button type="button" class="rsvp-option maybe" data-rsvp-status="maybe">
+                        <span>❓</span>
+                        <strong>لم أقرر بعد</strong>
+                    </button>
+                </div>
+
+                <p class="interaction-message" data-rsvp-message></p>
+            </div>
+        </section>
+
+        <section class="feelings-section" data-feature="feelings">
+            <div class="section-heading">
+                <span>شارك مشاعرك</span>
+                <h2>اترك رسالة جميلة</h2>
+                <p>شارك كلماتك ومشاعرك مع أصحاب الدعوة</p>
+            </div>
+
+            <div class="interaction-card">
+                <p class="feeling-notice" data-feeling-notice>
+                    تنبيه: رسالتك لن تظهر مباشرة، وستحتاج موافقة صاحب الدعوة قبل نشرها للزوار.
+                </p>
+
+                <input class="interaction-input" type="text" placeholder="اسمك" maxlength="60" data-feeling-name>
+
+                <textarea class="interaction-textarea" placeholder="اكتب رسالتك هنا..." maxlength="220"
+                    data-feeling-message></textarea>
+
+                <button type="button" class="interaction-submit" data-send-feeling>
+                    إرسال الرسالة
+                </button>
+
+                <p class="interaction-message" data-feeling-result></p>
+            </div>
+
+            <div class="feelings-list" data-feelings-list>
+            </div>
+        </section>
+
+        <section class="closing">
+            <div class="closing-card">
+                <span class="closing-icon">🤍</span>
+                <h2>{{closing}}</h2>
+                <p>{{title}}</p>
+            </div>
+        </section>
+
+        <script>
+            (function () {
+                var body = document.body;
+                var site = document.querySelector('.wedding-site');
+
+                body.classList.add('invite-locked');
+
+                if (site) {
+                    site.classList.add('invite-hidden');
+                }
+
+                /* =========================
+                   COUNTDOWN
+                ========================== */
+                var countdown = document.querySelector('[data-countdown]');
+
+                if (countdown) {
+                    var dateValue = countdown.getAttribute('data-date');
+                    var timeValue = countdown.getAttribute('data-time');
+
+                    if (!timeValue || timeValue.trim() === '' || timeValue.indexOf('{{') === 0) {
+                        timeValue = '20:00';
+                    }
+
+                    var targetDate = new Date(dateValue + 'T' + timeValue);
+
+                    var daysEl = countdown.querySelector('[data-days]');
+                    var hoursEl = countdown.querySelector('[data-hours]');
+                    var minutesEl = countdown.querySelector('[data-minutes]');
+                    var secondsEl = countdown.querySelector('[data-seconds]');
+
+                    function pad(value) {
+                        return String(value).padStart(2, '0');
+                    }
+
+                    function updateCountdown() {
+                        if (!dateValue || dateValue.indexOf('{{') === 0 || isNaN(targetDate.getTime())) {
+                            countdown.style.display = 'none';
+                            return;
+                        }
+
+                        var now = new Date();
+                        var distance = targetDate.getTime() - now.getTime();
+
+                        if (distance <= 0) {
+                            daysEl.textContent = '00';
+                            hoursEl.textContent = '00';
+                            minutesEl.textContent = '00';
+                            secondsEl.textContent = '00';
+                            return;
+                        }
+
+                        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                        var hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+                        var minutes = Math.floor((distance / (1000 * 60)) % 60);
+                        var seconds = Math.floor((distance / 1000) % 60);
+
+                        daysEl.textContent = pad(days);
+                        hoursEl.textContent = pad(hours);
+                        minutesEl.textContent = pad(minutes);
+                        secondsEl.textContent = pad(seconds);
+                    }
+
+                    updateCountdown();
+                    setInterval(updateCountdown, 1000);
+                }
+
+                /* =========================
+                   YOUTUBE AUDIO + OVERLAY
+                ========================== */
+                var box = document.querySelector('[data-youtube-audio]');
+                if (!box) return;
+
+                var iframe = box.querySelector('iframe');
+                var overlay = box.querySelector('.sound-overlay');
+                var startButton = box.querySelector('.sound-start-btn');
+                var toggleButton = box.querySelector('.sound-toggle-btn');
+                var rawUrl = box.getAttribute('data-youtube-src');
+
+                if (!iframe || !overlay || !startButton || !toggleButton) return;
+
+                function getYoutubeId(url) {
+                    if (!url || url.trim() === '' || url.indexOf('{{') === 0) return '';
+
+                    var patterns = [
+                        /youtu\.be\/([^?&]+)/,
+                        /youtube\.com\/watch\?v=([^?&]+)/,
+                        /youtube\.com\/embed\/([^?&]+)/,
+                        /youtube\.com\/shorts\/([^?&]+)/
+                    ];
+
+                    for (var i = 0; i < patterns.length; i++) {
+                        var match = url.match(patterns[i]);
+                        if (match && match[1]) return match[1];
+                    }
+
+                    return '';
+                }
+
+                var videoId = getYoutubeId(rawUrl);
+                var hasSound = !!videoId;
+                var isPlaying = false;
+
+                if (hasSound) {
+                    iframe.src = 'https://www.youtube.com/embed/' + videoId + '?enablejsapi=1&playsinline=1&rel=0&autoplay=0';
+                } else {
+                    toggleButton.style.display = 'none';
+                }
+
+                function sendCommand(command) {
+                    if (!hasSound) return;
+                    if (!iframe.contentWindow) return;
+
+                    iframe.contentWindow.postMessage(JSON.stringify({
+                        event: 'command',
+                        func: command,
+                        args: []
+                    }), '*');
+                }
+
+                function playSound() {
+                    if (!hasSound) return;
+
+                    sendCommand('unMute');
+                    sendCommand('playVideo');
+
+                    isPlaying = true;
+                    toggleButton.textContent = '🔊';
+                }
+
+                function pauseSound() {
+                    if (!hasSound) return;
+
+                    sendCommand('pauseVideo');
+
+                    isPlaying = false;
+                    toggleButton.textContent = '🔇';
+                }
+
+                function openInvite() {
+                    if (overlay.classList.contains('hide')) return;
+
+                    overlay.classList.add('hide');
+
+                    setTimeout(function () {
+                        body.classList.remove('invite-locked');
+
+                        if (site) {
+                            site.classList.remove('invite-hidden');
+                        }
+                    }, 250);
+
+                    setTimeout(function () {
+                        box.classList.add('sound-started');
+                    }, 650);
+
+                    setTimeout(playSound, 500);
+                    setTimeout(playSound, 1000);
+                    setTimeout(playSound, 1600);
+                }
+
+                overlay.addEventListener('click', openInvite);
+
+                startButton.addEventListener('click', function (event) {
+                    event.stopPropagation();
+                    openInvite();
+                });
+
+                toggleButton.addEventListener('click', function () {
+                    if (isPlaying) {
+                        pauseSound();
+                    } else {
+                        playSound();
+                    }
+                });
+            })();
+        </script>
+
+    </main>
+</body>
+
+</html>
