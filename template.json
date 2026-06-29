@@ -1,323 +1,360 @@
 {
-  "id": "test-template",
-  "name": "قالب اختبار شامل",
-  "version": "2.0.0",
+  "id": "sample-all-fields-template",
+  "name": "قالب تجريبي شامل",
+  "version": "1.0.0",
   "schemaVersion": "1.0.0",
-  "description": "قالب اختبار نظيف يغطي أهم خصائص Safhat: الحقول، الألوان، الخطوط، الخريطة، الصوت، RSVP والمشاعر.",
   "type": "custom",
-  "category": "testing",
   "language": "ar",
   "direction": "rtl",
   "html": "index.html",
   "css": "style.css",
-  "assetsBaseUrl": "",
-  "thumbnail": "preview/1.png",
-  "previewImage": "preview/1.png",
-  "tags": [
-    "test",
-    "wedding",
-    "features",
-    "rtl"
-  ],
-  "status": "active",
-  "isPremium": false,
-  "fields": [
-    {
-      "key": "showIcon",
-      "label": "إظهار الأيقونة",
-      "type": "select",
-      "formTab": "design",
-      "group": "visibility",
-      "required": true,
-      "defaultValue": "yes",
-      "options": [
-        {
-          "label": "نعم",
-          "value": "yes"
-        },
-        {
-          "label": "لا",
-          "value": "no"
-        }
-      ],
-      "width": "half"
-    },
-    {
-      "key": "icon",
-      "label": "الأيقونة",
-      "type": "icon",
-      "formTab": "design",
-      "group": "hero",
-      "required": true,
-      "defaultValue": "💍",
-      "options": [
-        {
-          "label": "💍",
-          "value": "💍"
-        },
-        {
-          "label": "👑",
-          "value": "👑"
-        },
-        {
-          "label": "💐",
-          "value": "💐"
-        },
-        {
-          "label": "✨",
-          "value": "✨"
-        }
-      ],
-      "visibleWhen": {
-        "field": "showIcon",
-        "equals": "yes"
-      },
-      "requiredWhen": {
-        "field": "showIcon",
-        "equals": "yes"
-      },
-      "width": "half"
-    },
-    {
-      "key": "showTitle",
-      "label": "إظهار عنوان الدعوة",
-      "type": "select",
-      "formTab": "design",
-      "group": "visibility",
-      "required": true,
-      "defaultValue": "yes",
-      "options": [
-        {
-          "label": "نعم",
-          "value": "yes"
-        },
-        {
-          "label": "لا",
-          "value": "no"
-        }
-      ],
-      "width": "half"
-    },
-    {
-      "key": "title",
-      "label": "عنوان الدعوة",
-      "type": "text",
-      "formTab": "data",
-      "group": "content",
-      "required": true,
-      "defaultValue": "دعوة زفاف",
-      "placeholder": "مثال: دعوة زفاف",
-      "minLength": 3,
-      "maxLength": 60,
-      "trim": true,
-      "sanitize": true,
-      "visibleWhen": {
-        "field": "showTitle",
-        "equals": "yes"
-      },
-      "requiredWhen": {
-        "field": "showTitle",
-        "equals": "yes"
-      },
-      "width": "full",
-      "designControls": {
-        "font": {
-          "enabled": true,
-          "label": "خط عنوان الدعوة",
-          "selector": ".hero-title"
-        }
-      }
-    },
-    {
-      "key": "message",
-      "label": "نص الدعوة",
-      "type": "textarea",
-      "formTab": "data",
-      "group": "content",
-      "required": true,
-      "defaultValue": "بكل الحب والسرور نتشرف بدعوتكم لمشاركتنا فرحة زواجنا",
-      "placeholder": "اكتب نص الدعوة",
-      "rows": 4,
-      "minLength": 10,
-      "maxLength": 240,
-      "trim": true,
-      "sanitize": true,
-      "width": "full"
-    },
-    {
-      "key": "names",
-      "label": "أسماء العروسين",
-      "type": "names",
-      "formTab": "data",
-      "group": "people",
-      "required": true,
-      "placeholder": "مثال: محمد",
-      "minItems": 2,
-      "maxItems": 2,
-      "separator": " و ",
-      "width": "full",
-      "designControls": {
-        "font": {
-          "enabled": true,
-          "label": "خط أسماء العروسين",
-          "selector": ".hero-names"
-        }
-      }
-    },
-    {
-      "key": "date",
-      "label": "تاريخ المناسبة",
-      "type": "date",
-      "formTab": "data",
-      "group": "event",
-      "required": true,
-      "defaultValue": "2026-12-31",
-      "width": "half"
-    },
-    {
-      "key": "time",
-      "label": "وقت المناسبة",
-      "type": "time",
-      "formTab": "data",
-      "group": "event",
-      "required": false,
-      "defaultValue": "20:00",
-      "width": "half"
-    },
-    {
-      "key": "location",
-      "label": "الموقع",
-      "type": "map",
-      "formTab": "data",
-      "group": "event",
-      "required": true,
-      "defaultValue": "Riyadh, Saudi Arabia",
-      "placeholder": "اختر الموقع من الخريطة",
-      "hint": "استخدم {{location}} لاسم الموقع و {{locationUrl}} للرابط.",
-      "width": "full"
-    },
-    {
-      "key": "showCountdown",
-      "label": "إظهار العد التنازلي",
-      "type": "select",
-      "formTab": "design",
-      "group": "visibility",
-      "required": true,
-      "defaultValue": "yes",
-      "options": [
-        {
-          "label": "نعم",
-          "value": "yes"
-        },
-        {
-          "label": "لا",
-          "value": "no"
-        }
-      ],
-      "width": "half"
-    },
-    {
-      "key": "showSound",
-      "label": "تفعيل صوت YouTube",
-      "type": "select",
-      "formTab": "design",
-      "group": "media",
-      "required": true,
-      "defaultValue": "no",
-      "options": [
-        {
-          "label": "نعم",
-          "value": "yes"
-        },
-        {
-          "label": "لا",
-          "value": "no"
-        }
-      ],
-      "width": "half"
-    },
-    {
-      "key": "soundUrl",
-      "label": "رابط YouTube للصوت",
-      "type": "youtube",
-      "formTab": "data",
-      "group": "media",
-      "required": false,
-      "defaultValue": "",
-      "placeholder": "https://youtu.be/...",
-      "hint": "ضع رابط YouTube وسيتم تشغيله بعد فتح الدعوة.",
-      "patternMessage": "الرابط يجب أن يبدأ بـ http أو https",
-      "pattern": "^https?:\\/\\/.+",
-      "visibleWhen": {
-        "field": "showSound",
-        "equals": "yes"
-      },
-      "width": "full"
-    },
-    {
-      "key": "themeColors",
-      "label": "ألوان التصميم",
-      "type": "colors",
-      "formTab": "design",
-      "group": "colors",
-      "required": false,
-      "defaultValue": {
-        "primary": "#7d8f72",
-        "accent": "#d7b98c",
-        "background": "#fbf6ef",
-        "text": "#3f342d"
-      },
-      "options": [
-        {
-          "label": "الرئيسي",
-          "value": "primary"
-        },
-        {
-          "label": "التمييز",
-          "value": "accent"
-        },
-        {
-          "label": "الخلفية",
-          "value": "background"
-        },
-        {
-          "label": "النص",
-          "value": "text"
-        }
-      ],
-      "width": "full"
-    },
-    {
-      "key": "closing",
-      "label": "رسالة الختام",
-      "type": "textarea",
-      "formTab": "data",
-      "group": "content",
-      "required": true,
-      "defaultValue": "حضوركم يتمم فرحتنا ويزيد ليلتنا جمالاً",
-      "placeholder": "اكتب رسالة الختام",
-      "minLength": 5,
-      "maxLength": 180,
-      "trim": true,
-      "sanitize": true,
-      "width": "full"
-    }
-  ],
+  "settings": {
+    "exportable": true,
+    "exportTypes": [
+      "png",
+      "pdf"
+    ],
+    "width": 1080,
+    "height": 1920,
+    "exportFileName": "safhat-design"
+  },
   "features": {
     "feelings": {
       "enabled": true,
       "approvalMode": "manual",
       "preventDuplicate": true,
       "rateLimitMinutes": 5,
-      "title": "شارك مشاعرك",
-      "description": "اكتب رسالة جميلة لأصحاب الدعوة"
+      "title": "الرسائل",
+      "description": "يمكن للزائر ترك رسالة"
     },
     "rsvp": {
       "enabled": true,
       "preventDuplicate": true,
       "nameRequired": false,
-      "title": "هل ستحضر؟",
-      "description": "يسعدنا معرفة حضورك للمناسبة"
+      "title": "تأكيد الحضور",
+      "description": "يمكن للزائر اختيار حالة الحضور"
     }
-  }
+  },
+  "fields": [
+    {
+      "key": "theme",
+      "label": "الثيم",
+      "type": "select",
+      "formTab": "design",
+      "defaultValue": "classic",
+      "required": true,
+      "options": [
+        {
+          "label": "كلاسيك",
+          "value": "classic"
+        },
+        {
+          "label": "فاخر",
+          "value": "luxury"
+        }
+      ]
+    },
+    {
+      "key": "showLogo",
+      "label": "إظهار الصورة",
+      "type": "select",
+      "formTab": "design",
+      "defaultValue": "yes",
+      "required": true,
+      "options": [
+        {
+          "label": "نعم",
+          "value": "yes"
+        },
+        {
+          "label": "لا",
+          "value": "no"
+        }
+      ]
+    },
+    {
+      "key": "icon",
+      "label": "الأيقونة",
+      "type": "icon",
+      "formTab": "design",
+      "defaultValue": "✨",
+      "options": [
+        {
+          "label": "✨",
+          "value": "✨"
+        },
+        {
+          "label": "💌",
+          "value": "💌"
+        },
+        {
+          "label": "🎉",
+          "value": "🎉"
+        }
+      ]
+    },
+    {
+      "key": "logo",
+      "label": "الصورة",
+      "type": "image",
+      "defaultValue": "https://placehold.co/600x600/e0f2fe/0369a1?text=Safhat",
+      "visibleWhen": {
+        "field": "showLogo",
+        "equals": "yes"
+      },
+      "requiredWhen": {
+        "field": "showLogo",
+        "equals": "yes"
+      },
+      "imageCrop": {
+        "enabled": true,
+        "aspectRatio": "square",
+        "outputWidth": 900,
+        "outputHeight": 900,
+        "maxWidth": 1400,
+        "maxHeight": 1400,
+        "quality": 0.9
+      }
+    },
+    {
+      "key": "eyebrow",
+      "label": "النص العلوي",
+      "type": "text",
+      "defaultValue": "مرحبًا بكم",
+      "required": true,
+      "maxLength": 80
+    },
+    {
+      "key": "title",
+      "label": "العنوان",
+      "type": "text",
+      "defaultValue": "عنوان التصميم",
+      "required": true,
+      "minLength": 3,
+      "maxLength": 80,
+      "designControls": {
+        "font": {
+          "enabled": true,
+          "label": "خط العنوان",
+          "selector": ".title"
+        }
+      }
+    },
+    {
+      "key": "description",
+      "label": "الوصف",
+      "type": "textarea",
+      "defaultValue": "اكتب وصفًا قصيرًا يظهر في التصميم.",
+      "required": true,
+      "minLength": 10,
+      "maxLength": 240
+    },
+    {
+      "key": "names",
+      "label": "الأسماء",
+      "type": "names",
+      "separator": " و ",
+      "minItems": 1,
+      "maxItems": 3,
+      "placeholder": "مثال: محمد",
+      "required": true,
+      "designControls": {
+        "font": {
+          "enabled": true,
+          "label": "خط الأسماء",
+          "selector": ".names"
+        }
+      }
+    },
+    {
+      "key": "date",
+      "label": "التاريخ",
+      "type": "date",
+      "required": true
+    },
+    {
+      "key": "time",
+      "label": "الوقت",
+      "type": "time",
+      "defaultValue": "20:00"
+    },
+    {
+      "key": "locationUrl",
+      "label": "الموقع",
+      "type": "map",
+      "required": true,
+      "placeholder": "اختر الموقع من الخريطة"
+    },
+    {
+      "key": "audioTrack",
+      "label": "ملف صوتي",
+      "type": "audio",
+      "required": false
+    },
+    {
+      "key": "youtubeUrl",
+      "label": "رابط YouTube",
+      "type": "youtube",
+      "placeholder": "https://youtu.be/...",
+      "pattern": "^https?:\\/\\/.+",
+      "patternMessage": "الرابط يجب أن يبدأ بـ http أو https"
+    },
+    {
+      "key": "skills",
+      "label": "قائمة بسيطة",
+      "type": "list",
+      "listStyle": "tags",
+      "defaultValue": [
+        "تصميم جاهز",
+        "سهل التخصيص"
+      ],
+      "minItems": 1,
+      "maxItems": 8
+    },
+    {
+      "key": "services",
+      "label": "عناصر متكررة",
+      "type": "repeater",
+      "minItems": 1,
+      "maxItems": 4,
+      "itemFields": [
+        {
+          "key": "title",
+          "label": "العنوان",
+          "type": "text",
+          "required": true,
+          "maxLength": 60
+        },
+        {
+          "key": "description",
+          "label": "الوصف",
+          "type": "textarea",
+          "maxLength": 180
+        },
+        {
+          "key": "url",
+          "label": "رابط",
+          "type": "url"
+        },
+        {
+          "key": "points",
+          "label": "نقاط",
+          "type": "list",
+          "maxItems": 5
+        }
+      ]
+    },
+    {
+      "key": "primaryColor",
+      "label": "اللون الأساسي",
+      "type": "color",
+      "formTab": "design",
+      "defaultValue": "#7c3aed"
+    },
+    {
+      "key": "accentColor",
+      "label": "لون التمييز",
+      "type": "color",
+      "formTab": "design",
+      "defaultValue": "#06b6d4"
+    },
+    {
+      "key": "textColor",
+      "label": "لون النص",
+      "type": "color",
+      "formTab": "design",
+      "defaultValue": "#111827"
+    },
+    {
+      "key": "themeColors",
+      "label": "ألوان الثيم",
+      "type": "colors",
+      "formTab": "design",
+      "defaultValue": {
+        "background": "#f8fafc",
+        "card": "#ffffff"
+      },
+      "options": [
+        {
+          "label": "الخلفية",
+          "value": "background"
+        },
+        {
+          "label": "البطاقة",
+          "value": "card"
+        }
+      ]
+    },
+    {
+      "key": "feelingsTitle",
+      "label": "عنوان الرسائل",
+      "type": "text",
+      "defaultValue": "شارك مشاعرك"
+    },
+    {
+      "key": "feelingsDescription",
+      "label": "وصف الرسائل",
+      "type": "textarea",
+      "defaultValue": "اكتب رسالة قصيرة لصاحب التصميم."
+    },
+    {
+      "key": "rsvpTitle",
+      "label": "عنوان الحضور",
+      "type": "text",
+      "defaultValue": "هل ستحضر؟"
+    },
+    {
+      "key": "rsvpDescription",
+      "label": "وصف الحضور",
+      "type": "textarea",
+      "defaultValue": "يسعدنا معرفة حضورك."
+    },
+    {
+      "key": "closing",
+      "label": "الخاتمة",
+      "type": "textarea",
+      "defaultValue": "شكرًا لكم.",
+      "required": true
+    }
+  ],
+  "sections": [
+    {
+      "key": "logo",
+      "selector": "[data-section='logo']",
+      "visibleWhen": {
+        "field": "showLogo",
+        "equals": "yes"
+      }
+    },
+    {
+      "key": "audio",
+      "selector": "[data-section='audio']",
+      "visibleWhen": {
+        "field": "audioTrack",
+        "exists": true
+      }
+    },
+    {
+      "key": "youtube",
+      "selector": "[data-section='youtube']",
+      "visibleWhen": {
+        "field": "youtubeUrl",
+        "exists": true
+      }
+    },
+    {
+      "key": "feelings",
+      "selector": "[data-feature='feelings']"
+    },
+    {
+      "key": "rsvp",
+      "selector": "[data-feature='rsvp']"
+    }
+  ],
+  "exportTypes": [
+    "png",
+    "pdf"
+  ],
+  "order": 1,
+  "isActive": true
 }
