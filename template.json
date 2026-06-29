@@ -1,6 +1,6 @@
 {
   "id": "sample-all-fields-template",
-  "name": "قالب تجريبي شامل",
+  "name": "قالب عينة شامل",
   "version": "1.0.0",
   "schemaVersion": "1.0.0",
   "type": "custom",
@@ -16,7 +16,9 @@
     ],
     "width": 1080,
     "height": 1920,
-    "exportFileName": "safhat-design"
+    "durationSeconds": 6,
+    "fps": 12,
+    "exportFileName": "safhat-sample"
   },
   "features": {
     "feelings": {
@@ -24,8 +26,8 @@
       "approvalMode": "manual",
       "preventDuplicate": true,
       "rateLimitMinutes": 5,
-      "title": "الرسائل",
-      "description": "يمكن للزائر ترك رسالة"
+      "title": "مشاركة الرسائل",
+      "description": "يمكن للزائر ترك رسالة تظهر حسب طريقة الموافقة"
     },
     "rsvp": {
       "enabled": true,
@@ -41,12 +43,12 @@
       "label": "الثيم",
       "type": "select",
       "formTab": "design",
-      "defaultValue": "classic",
+      "defaultValue": "modern",
       "required": true,
       "options": [
         {
-          "label": "كلاسيك",
-          "value": "classic"
+          "label": "حديث",
+          "value": "modern"
         },
         {
           "label": "فاخر",
@@ -55,10 +57,11 @@
       ]
     },
     {
-      "key": "showLogo",
-      "label": "إظهار الصورة",
+      "key": "showIcon",
+      "label": "إظهار الأيقونة",
       "type": "select",
       "formTab": "design",
+      "group": "visibility",
       "defaultValue": "yes",
       "required": true,
       "options": [
@@ -78,6 +81,14 @@
       "type": "icon",
       "formTab": "design",
       "defaultValue": "✨",
+      "visibleWhen": {
+        "field": "showIcon",
+        "equals": "yes"
+      },
+      "requiredWhen": {
+        "field": "showIcon",
+        "equals": "yes"
+      },
       "options": [
         {
           "label": "✨",
@@ -90,26 +101,50 @@
         {
           "label": "🎉",
           "value": "🎉"
+        },
+        {
+          "label": "🌿",
+          "value": "🌿"
         }
       ]
     },
     {
-      "key": "logo",
+      "key": "showCoverImage",
+      "label": "إظهار الصورة",
+      "type": "select",
+      "formTab": "design",
+      "group": "visibility",
+      "defaultValue": "yes",
+      "required": true,
+      "options": [
+        {
+          "label": "نعم",
+          "value": "yes"
+        },
+        {
+          "label": "لا",
+          "value": "no"
+        }
+      ]
+    },
+    {
+      "key": "coverImage",
       "label": "الصورة",
       "type": "image",
-      "defaultValue": "https://placehold.co/600x600/e0f2fe/0369a1?text=Safhat",
+      "defaultValue": "https://placehold.co/900x700/e0f2fe/0369a1?text=Safhat",
+      "hint": "ارفع صورة واضحة. سيظهر محرر القص عند الرفع.",
       "visibleWhen": {
-        "field": "showLogo",
+        "field": "showCoverImage",
         "equals": "yes"
       },
       "requiredWhen": {
-        "field": "showLogo",
+        "field": "showCoverImage",
         "equals": "yes"
       },
       "imageCrop": {
         "enabled": true,
-        "aspectRatio": "square",
-        "outputWidth": 900,
+        "aspectRatio": "landscape",
+        "outputWidth": 1200,
         "outputHeight": 900,
         "maxWidth": 1400,
         "maxHeight": 1400,
@@ -117,21 +152,73 @@
       }
     },
     {
+      "key": "showEyebrow",
+      "label": "إظهار النص العلوي",
+      "type": "select",
+      "formTab": "design",
+      "group": "visibility",
+      "defaultValue": "yes",
+      "required": true,
+      "options": [
+        {
+          "label": "نعم",
+          "value": "yes"
+        },
+        {
+          "label": "لا",
+          "value": "no"
+        }
+      ]
+    },
+    {
       "key": "eyebrow",
       "label": "النص العلوي",
       "type": "text",
       "defaultValue": "مرحبًا بكم",
+      "maxLength": 80,
+      "visibleWhen": {
+        "field": "showEyebrow",
+        "equals": "yes"
+      },
+      "requiredWhen": {
+        "field": "showEyebrow",
+        "equals": "yes"
+      }
+    },
+    {
+      "key": "showTitle",
+      "label": "إظهار العنوان",
+      "type": "select",
+      "formTab": "design",
+      "group": "visibility",
+      "defaultValue": "yes",
       "required": true,
-      "maxLength": 80
+      "options": [
+        {
+          "label": "نعم",
+          "value": "yes"
+        },
+        {
+          "label": "لا",
+          "value": "no"
+        }
+      ]
     },
     {
       "key": "title",
       "label": "العنوان",
       "type": "text",
       "defaultValue": "عنوان التصميم",
-      "required": true,
       "minLength": 3,
       "maxLength": 80,
+      "visibleWhen": {
+        "field": "showTitle",
+        "equals": "yes"
+      },
+      "requiredWhen": {
+        "field": "showTitle",
+        "equals": "yes"
+      },
       "designControls": {
         "font": {
           "enabled": true,
@@ -141,23 +228,75 @@
       }
     },
     {
-      "key": "description",
-      "label": "الوصف",
-      "type": "textarea",
-      "defaultValue": "اكتب وصفًا قصيرًا يظهر في التصميم.",
+      "key": "showSubtitle",
+      "label": "إظهار الوصف القصير",
+      "type": "select",
+      "formTab": "design",
+      "group": "visibility",
+      "defaultValue": "yes",
       "required": true,
-      "minLength": 10,
-      "maxLength": 240
+      "options": [
+        {
+          "label": "نعم",
+          "value": "yes"
+        },
+        {
+          "label": "لا",
+          "value": "no"
+        }
+      ]
+    },
+    {
+      "key": "subtitle",
+      "label": "الوصف القصير",
+      "type": "textarea",
+      "defaultValue": "وصف مختصر يظهر تحت العنوان.",
+      "minLength": 5,
+      "maxLength": 180,
+      "visibleWhen": {
+        "field": "showSubtitle",
+        "equals": "yes"
+      },
+      "requiredWhen": {
+        "field": "showSubtitle",
+        "equals": "yes"
+      }
+    },
+    {
+      "key": "showNames",
+      "label": "إظهار الأسماء",
+      "type": "select",
+      "formTab": "design",
+      "group": "visibility",
+      "defaultValue": "yes",
+      "required": true,
+      "options": [
+        {
+          "label": "نعم",
+          "value": "yes"
+        },
+        {
+          "label": "لا",
+          "value": "no"
+        }
+      ]
     },
     {
       "key": "names",
       "label": "الأسماء",
       "type": "names",
       "separator": " و ",
+      "placeholder": "مثال: محمد",
       "minItems": 1,
       "maxItems": 3,
-      "placeholder": "مثال: محمد",
-      "required": true,
+      "visibleWhen": {
+        "field": "showNames",
+        "equals": "yes"
+      },
+      "requiredWhen": {
+        "field": "showNames",
+        "equals": "yes"
+      },
       "designControls": {
         "font": {
           "enabled": true,
@@ -167,41 +306,186 @@
       }
     },
     {
+      "key": "showDetails",
+      "label": "إظهار التاريخ والوقت والموقع",
+      "type": "select",
+      "formTab": "design",
+      "group": "visibility",
+      "defaultValue": "yes",
+      "required": true,
+      "options": [
+        {
+          "label": "نعم",
+          "value": "yes"
+        },
+        {
+          "label": "لا",
+          "value": "no"
+        }
+      ]
+    },
+    {
       "key": "date",
       "label": "التاريخ",
       "type": "date",
-      "required": true
+      "visibleWhen": {
+        "field": "showDetails",
+        "equals": "yes"
+      },
+      "requiredWhen": {
+        "field": "showDetails",
+        "equals": "yes"
+      }
     },
     {
       "key": "time",
       "label": "الوقت",
       "type": "time",
-      "defaultValue": "20:00"
+      "defaultValue": "20:00",
+      "visibleWhen": {
+        "field": "showDetails",
+        "equals": "yes"
+      }
+    },
+    {
+      "key": "placeTitle",
+      "label": "اسم الموقع",
+      "type": "text",
+      "defaultValue": "الموقع",
+      "maxLength": 80,
+      "visibleWhen": {
+        "field": "showDetails",
+        "equals": "yes"
+      },
+      "requiredWhen": {
+        "field": "showDetails",
+        "equals": "yes"
+      }
     },
     {
       "key": "locationUrl",
-      "label": "الموقع",
+      "label": "رابط الموقع",
       "type": "map",
+      "placeholder": "اختر الموقع من الخريطة",
+      "visibleWhen": {
+        "field": "showDetails",
+        "equals": "yes"
+      },
+      "requiredWhen": {
+        "field": "showDetails",
+        "equals": "yes"
+      }
+    },
+    {
+      "key": "showSelectedPackage",
+      "label": "إظهار الباقة",
+      "type": "select",
+      "formTab": "design",
+      "group": "visibility",
+      "defaultValue": "yes",
       "required": true,
-      "placeholder": "اختر الموقع من الخريطة"
+      "options": [
+        {
+          "label": "نعم",
+          "value": "yes"
+        },
+        {
+          "label": "لا",
+          "value": "no"
+        }
+      ]
     },
     {
-      "key": "audioTrack",
-      "label": "ملف صوتي",
-      "type": "audio",
-      "required": false
+      "key": "selectedPackage",
+      "label": "الباقة",
+      "type": "select",
+      "defaultValue": "premium",
+      "visibleWhen": {
+        "field": "showSelectedPackage",
+        "equals": "yes"
+      },
+      "options": [
+        {
+          "label": "أساسية",
+          "value": "basic"
+        },
+        {
+          "label": "مميزة",
+          "value": "premium"
+        },
+        {
+          "label": "فاخرة",
+          "value": "luxury"
+        }
+      ]
     },
     {
-      "key": "youtubeUrl",
-      "label": "رابط YouTube",
-      "type": "youtube",
-      "placeholder": "https://youtu.be/...",
-      "pattern": "^https?:\\/\\/.+",
-      "patternMessage": "الرابط يجب أن يبدأ بـ http أو https"
+      "key": "showMessage",
+      "label": "إظهار النص الرئيسي",
+      "type": "select",
+      "formTab": "design",
+      "group": "visibility",
+      "defaultValue": "yes",
+      "required": true,
+      "options": [
+        {
+          "label": "نعم",
+          "value": "yes"
+        },
+        {
+          "label": "لا",
+          "value": "no"
+        }
+      ]
     },
     {
-      "key": "skills",
-      "label": "قائمة بسيطة",
+      "key": "message",
+      "label": "النص الرئيسي",
+      "type": "textarea",
+      "defaultValue": "اكتب هنا النص الرئيسي الذي تريد عرضه داخل التصميم.",
+      "minLength": 5,
+      "maxLength": 300,
+      "visibleWhen": {
+        "field": "showMessage",
+        "equals": "yes"
+      },
+      "requiredWhen": {
+        "field": "showMessage",
+        "equals": "yes"
+      }
+    },
+    {
+      "key": "showTags",
+      "label": "إظهار القائمة",
+      "type": "select",
+      "formTab": "design",
+      "group": "visibility",
+      "defaultValue": "yes",
+      "required": true,
+      "options": [
+        {
+          "label": "نعم",
+          "value": "yes"
+        },
+        {
+          "label": "لا",
+          "value": "no"
+        }
+      ]
+    },
+    {
+      "key": "tagsTitle",
+      "label": "عنوان القائمة",
+      "type": "text",
+      "defaultValue": "مميزات",
+      "visibleWhen": {
+        "field": "showTags",
+        "equals": "yes"
+      }
+    },
+    {
+      "key": "tags",
+      "label": "القائمة",
       "type": "list",
       "listStyle": "tags",
       "defaultValue": [
@@ -209,14 +493,59 @@
         "سهل التخصيص"
       ],
       "minItems": 1,
-      "maxItems": 8
+      "maxItems": 8,
+      "visibleWhen": {
+        "field": "showTags",
+        "equals": "yes"
+      },
+      "requiredWhen": {
+        "field": "showTags",
+        "equals": "yes"
+      }
+    },
+    {
+      "key": "showServices",
+      "label": "إظهار العناصر المتكررة",
+      "type": "select",
+      "formTab": "design",
+      "group": "visibility",
+      "defaultValue": "yes",
+      "required": true,
+      "options": [
+        {
+          "label": "نعم",
+          "value": "yes"
+        },
+        {
+          "label": "لا",
+          "value": "no"
+        }
+      ]
+    },
+    {
+      "key": "servicesTitle",
+      "label": "عنوان العناصر المتكررة",
+      "type": "text",
+      "defaultValue": "الخدمات",
+      "visibleWhen": {
+        "field": "showServices",
+        "equals": "yes"
+      }
     },
     {
       "key": "services",
-      "label": "عناصر متكررة",
+      "label": "العناصر المتكررة",
       "type": "repeater",
       "minItems": 1,
       "maxItems": 4,
+      "visibleWhen": {
+        "field": "showServices",
+        "equals": "yes"
+      },
+      "requiredWhen": {
+        "field": "showServices",
+        "equals": "yes"
+      },
       "itemFields": [
         {
           "key": "title",
@@ -245,6 +574,159 @@
       ]
     },
     {
+      "key": "showAudio",
+      "label": "إظهار الصوت",
+      "type": "select",
+      "formTab": "design",
+      "group": "visibility",
+      "defaultValue": "no",
+      "required": true,
+      "options": [
+        {
+          "label": "نعم",
+          "value": "yes"
+        },
+        {
+          "label": "لا",
+          "value": "no"
+        }
+      ]
+    },
+    {
+      "key": "audioTitle",
+      "label": "عنوان الصوت",
+      "type": "text",
+      "defaultValue": "الصوت",
+      "visibleWhen": {
+        "field": "showAudio",
+        "equals": "yes"
+      }
+    },
+    {
+      "key": "audioTrack",
+      "label": "ملف صوتي",
+      "type": "audio",
+      "visibleWhen": {
+        "field": "showAudio",
+        "equals": "yes"
+      }
+    },
+    {
+      "key": "showYoutube",
+      "label": "إظهار فيديو YouTube",
+      "type": "select",
+      "formTab": "design",
+      "group": "visibility",
+      "defaultValue": "no",
+      "required": true,
+      "options": [
+        {
+          "label": "نعم",
+          "value": "yes"
+        },
+        {
+          "label": "لا",
+          "value": "no"
+        }
+      ]
+    },
+    {
+      "key": "youtubeTitle",
+      "label": "عنوان الفيديو",
+      "type": "text",
+      "defaultValue": "الفيديو",
+      "visibleWhen": {
+        "field": "showYoutube",
+        "equals": "yes"
+      }
+    },
+    {
+      "key": "youtubeUrl",
+      "label": "رابط YouTube",
+      "type": "youtube",
+      "placeholder": "https://youtu.be/...",
+      "pattern": "^https?:\\/\\/.+",
+      "patternMessage": "الرابط يجب أن يبدأ بـ http أو https",
+      "visibleWhen": {
+        "field": "showYoutube",
+        "equals": "yes"
+      }
+    },
+    {
+      "key": "feelingsTitle",
+      "label": "عنوان الرسائل",
+      "type": "text",
+      "defaultValue": "شارك مشاعرك",
+      "visibleWhen": {
+        "field": "feelingsEnabled",
+        "equals": "yes"
+      }
+    },
+    {
+      "key": "feelingsDescription",
+      "label": "وصف الرسائل",
+      "type": "textarea",
+      "defaultValue": "اكتب رسالة قصيرة لصاحب التصميم.",
+      "visibleWhen": {
+        "field": "feelingsEnabled",
+        "equals": "yes"
+      }
+    },
+    {
+      "key": "rsvpTitle",
+      "label": "عنوان الحضور",
+      "type": "text",
+      "defaultValue": "هل ستحضر؟",
+      "visibleWhen": {
+        "field": "rsvpEnabled",
+        "equals": "yes"
+      }
+    },
+    {
+      "key": "rsvpDescription",
+      "label": "وصف الحضور",
+      "type": "textarea",
+      "defaultValue": "يسعدنا معرفة حضورك.",
+      "visibleWhen": {
+        "field": "rsvpEnabled",
+        "equals": "yes"
+      }
+    },
+    {
+      "key": "showClosing",
+      "label": "إظهار الخاتمة",
+      "type": "select",
+      "formTab": "design",
+      "group": "visibility",
+      "defaultValue": "yes",
+      "required": true,
+      "options": [
+        {
+          "label": "نعم",
+          "value": "yes"
+        },
+        {
+          "label": "لا",
+          "value": "no"
+        }
+      ]
+    },
+    {
+      "key": "closing",
+      "label": "الخاتمة",
+      "type": "textarea",
+      "defaultValue": "شكرًا لكم.",
+      "maxLength": 180,
+      "visibleWhen": {
+        "field": "showClosing",
+        "equals": "yes"
+      },
+      "requiredWhen": {
+        "field": "showClosing",
+        "equals": "yes"
+      }
+    },
+    {
       "key": "primaryColor",
       "label": "اللون الأساسي",
       "type": "color",
@@ -266,13 +748,21 @@
       "defaultValue": "#111827"
     },
     {
+      "key": "mutedColor",
+      "label": "لون النص الثانوي",
+      "type": "color",
+      "formTab": "design",
+      "defaultValue": "#64748b"
+    },
+    {
       "key": "themeColors",
-      "label": "ألوان الثيم",
+      "label": "ألوان التصميم",
       "type": "colors",
       "formTab": "design",
       "defaultValue": {
         "background": "#f8fafc",
-        "card": "#ffffff"
+        "card": "#ffffff",
+        "soft": "#eef2ff"
       },
       "options": [
         {
@@ -282,47 +772,100 @@
         {
           "label": "البطاقة",
           "value": "card"
+        },
+        {
+          "label": "اللون الناعم",
+          "value": "soft"
         }
       ]
-    },
-    {
-      "key": "feelingsTitle",
-      "label": "عنوان الرسائل",
-      "type": "text",
-      "defaultValue": "شارك مشاعرك"
-    },
-    {
-      "key": "feelingsDescription",
-      "label": "وصف الرسائل",
-      "type": "textarea",
-      "defaultValue": "اكتب رسالة قصيرة لصاحب التصميم."
-    },
-    {
-      "key": "rsvpTitle",
-      "label": "عنوان الحضور",
-      "type": "text",
-      "defaultValue": "هل ستحضر؟"
-    },
-    {
-      "key": "rsvpDescription",
-      "label": "وصف الحضور",
-      "type": "textarea",
-      "defaultValue": "يسعدنا معرفة حضورك."
-    },
-    {
-      "key": "closing",
-      "label": "الخاتمة",
-      "type": "textarea",
-      "defaultValue": "شكرًا لكم.",
-      "required": true
     }
   ],
   "sections": [
     {
-      "key": "logo",
-      "selector": "[data-section='logo']",
+      "key": "icon",
+      "selector": "[data-section='icon']",
       "visibleWhen": {
-        "field": "showLogo",
+        "field": "showIcon",
+        "equals": "yes"
+      }
+    },
+    {
+      "key": "coverImage",
+      "selector": "[data-section='coverImage']",
+      "visibleWhen": {
+        "field": "showCoverImage",
+        "equals": "yes"
+      }
+    },
+    {
+      "key": "eyebrow",
+      "selector": "[data-section='eyebrow']",
+      "visibleWhen": {
+        "field": "showEyebrow",
+        "equals": "yes"
+      }
+    },
+    {
+      "key": "title",
+      "selector": "[data-section='title']",
+      "visibleWhen": {
+        "field": "showTitle",
+        "equals": "yes"
+      }
+    },
+    {
+      "key": "subtitle",
+      "selector": "[data-section='subtitle']",
+      "visibleWhen": {
+        "field": "showSubtitle",
+        "equals": "yes"
+      }
+    },
+    {
+      "key": "names",
+      "selector": "[data-section='names']",
+      "visibleWhen": {
+        "field": "showNames",
+        "equals": "yes"
+      }
+    },
+    {
+      "key": "details",
+      "selector": "[data-section='details']",
+      "visibleWhen": {
+        "field": "showDetails",
+        "equals": "yes"
+      }
+    },
+    {
+      "key": "selectedPackage",
+      "selector": "[data-section='selectedPackage']",
+      "visibleWhen": {
+        "field": "showSelectedPackage",
+        "equals": "yes"
+      }
+    },
+    {
+      "key": "message",
+      "selector": "[data-section='message']",
+      "visibleWhen": {
+        "field": "showMessage",
+        "equals": "yes"
+      }
+    },
+    {
+      "key": "tags",
+      "selector": "[data-section='tags']",
+      "visibleWhen": {
+        "field": "showTags",
+        "equals": "yes"
+      }
+    },
+    {
+      "key": "services",
+      "selector": "[data-section='services']",
+      "visibleWhen": {
+        "field": "showServices",
         "equals": "yes"
       }
     },
@@ -330,16 +873,16 @@
       "key": "audio",
       "selector": "[data-section='audio']",
       "visibleWhen": {
-        "field": "audioTrack",
-        "exists": true
+        "field": "showAudio",
+        "equals": "yes"
       }
     },
     {
       "key": "youtube",
       "selector": "[data-section='youtube']",
       "visibleWhen": {
-        "field": "youtubeUrl",
-        "exists": true
+        "field": "showYoutube",
+        "equals": "yes"
       }
     },
     {
@@ -349,6 +892,14 @@
     {
       "key": "rsvp",
       "selector": "[data-feature='rsvp']"
+    },
+    {
+      "key": "closing",
+      "selector": "[data-section='closing']",
+      "visibleWhen": {
+        "field": "showClosing",
+        "equals": "yes"
+      }
     }
   ],
   "exportTypes": [

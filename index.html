@@ -9,92 +9,153 @@
 </head>
 
 <body style="
-  --primary: {{primaryColor}};
-  --accent: {{accentColor}};
-  --text: {{textColor}};
-  --card: {{themeColors.card}};
-  --bg: {{themeColors.background}};
+    --background-color: {{themeColors.background}};
+    --card-color: {{themeColors.card}};
+    --soft-color: {{themeColors.soft}};
+    --primary-color: {{primaryColor}};
+    --accent-color: {{accentColor}};
+    --text-color: {{textColor}};
+    --muted-color: {{mutedColor}};
 ">
-    <main class="
-    sample-page
-    theme-{{theme}}
-    show-logo-{{showLogo}}
-    feature-rsvp-{{rsvpEnabled}}
-    feature-feelings-{{feelingsEnabled}}
-  ">
-        <section class="hero-card">
-            <div class="icon" data-section="icon">{{icon}}</div>
+    <main class="sample-template theme-{{theme}}">
+        <section class="sample-card">
 
-            <img class="logo" data-section="logo" src="{{logo}}" alt="{{title}}" />
+            <div class="top-icon" data-section="icon">
+                {{icon}}
+            </div>
 
-            <p class="eyebrow" data-section="eyebrow">{{eyebrow}}</p>
-            <h1 class="title" data-section="title">{{title}}</h1>
-            <p class="description" data-section="description">{{description}}</p>
+            <div class="cover-wrap" data-section="coverImage">
+                <img src="{{coverImage}}" alt="{{title}}" />
+            </div>
+
+            <p class="eyebrow" data-section="eyebrow">
+                {{eyebrow}}
+            </p>
+
+            <h1 class="title" data-section="title">
+                {{title}}
+            </h1>
+
+            <p class="subtitle" data-section="subtitle">
+                {{subtitle}}
+            </p>
 
             <div class="names" data-section="names">
                 {{names}}
             </div>
 
-            <div class="details">
-                <div data-section="date">📅 {{date}}</div>
-                <div data-section="time">⏰ {{time}}</div>
-                <a data-section="location" href="{{locationUrl}}" target="_blank" rel="noopener">📍 الموقع</a>
+            <div class="event-details" data-section="details">
+                <div data-section="date">
+                    <span>📅</span>
+                    <strong>{{date}}</strong>
+                </div>
+
+                <div data-section="time">
+                    <span>⏰</span>
+                    <strong>{{time}}</strong>
+                </div>
+
+                <a href="{{locationUrl}}" target="_blank" rel="noopener" data-section="location">
+                    <span>📍</span>
+                    <strong>{{placeTitle}}</strong>
+                </a>
             </div>
 
-            <audio data-section="audio" controls src="{{audioTrack}}"></audio>
+            <section class="select-info" data-section="selectedPackage">
+                <span>الباقة المختارة</span>
+                <strong>{{selectedPackage}}</strong>
+            </section>
 
-            <iframe data-section="youtube" class="youtube-frame" src="{{youtubeUrl}}" title="YouTube" loading="lazy">
-            </iframe>
+            <section class="text-block" data-section="message">
+                <p>{{message}}</p>
+            </section>
 
-            <section class="skills" data-section="skills">
-                <h2>القائمة</h2>
-                <div class="tags">
-                    {{#each skills}}
+            <section class="tags-section" data-section="tags">
+                <h2>{{tagsTitle}}</h2>
+
+                <div class="tags-list">
+                    {{#each tags}}
                     <span>{{this}}</span>
                     {{/each}}
                 </div>
             </section>
 
-            <section class="services" data-section="services">
-                <h2>العناصر المتكررة</h2>
-                {{#each services}}
-                <article class="service-card">
-                    <h3>{{title}}</h3>
-                    <p>{{description}}</p>
-                    <a href="{{url}}" target="_blank" rel="noopener">رابط</a>
-                    <ul>
-                        {{#each points}}
-                        <li>{{this}}</li>
-                        {{/each}}
-                    </ul>
-                </article>
-                {{/each}}
+            <section class="repeater-section" data-section="services">
+                <h2>{{servicesTitle}}</h2>
+
+                <div class="services-grid">
+                    {{#each services}}
+                    <article class="service-card">
+                        <h3>{{title}}</h3>
+                        <p>{{description}}</p>
+
+                        <ul>
+                            {{#each points}}
+                            <li>{{this}}</li>
+                            {{/each}}
+                        </ul>
+
+                        <a href="{{url}}" target="_blank" rel="noopener">عرض الرابط</a>
+                    </article>
+                    {{/each}}
+                </div>
+            </section>
+
+            <section class="media-section" data-section="audio">
+                <h2>{{audioTitle}}</h2>
+                <audio controls src="{{audioTrack}}"></audio>
+            </section>
+
+            <section class="media-section" data-section="youtube">
+                <h2>{{youtubeTitle}}</h2>
+                <iframe src="{{youtubeUrl}}" title="{{youtubeTitle}}" loading="lazy"></iframe>
             </section>
 
             <section class="feelings-section" data-feature="feelings" data-section="feelings">
-                <h2>{{feelingsTitle}}</h2>
-                <p>{{feelingsDescription}}</p>
-                <div class="interaction-card">
-                    <p data-feeling-notice></p>
-                    <input type="text" data-feeling-name placeholder="اسمك" maxlength="60" />
-                    <textarea data-feeling-message placeholder="رسالتك" maxlength="220"></textarea>
-                    <button type="button" data-send-feeling>إرسال الرسالة</button>
-                    <p data-feeling-result></p>
+                <div class="section-heading">
+                    <h2>{{feelingsTitle}}</h2>
+                    <p>{{feelingsDescription}}</p>
                 </div>
-                <div data-feelings-list></div>
+
+                <div class="interaction-card">
+                    <p class="interaction-note" data-feeling-notice></p>
+
+                    <input type="text" placeholder="اسمك" maxlength="60" data-feeling-name />
+                    <textarea placeholder="اكتب رسالتك هنا..." maxlength="220" data-feeling-message></textarea>
+
+                    <button type="button" data-send-feeling>
+                        إرسال الرسالة
+                    </button>
+
+                    <p class="interaction-message" data-feeling-result></p>
+                </div>
+
+                <div class="feelings-list" data-feelings-list></div>
             </section>
 
             <section class="rsvp-section" data-feature="rsvp" data-section="rsvp">
-                <h2>{{rsvpTitle}}</h2>
-                <p>{{rsvpDescription}}</p>
-                <input type="text" data-rsvp-name placeholder="اكتب اسمك" maxlength="60" />
-                <button type="button" data-rsvp-status="attending">سأحضر</button>
-                <button type="button" data-rsvp-status="not_attending">لن أحضر</button>
-                <button type="button" data-rsvp-status="maybe">ربما</button>
-                <p data-rsvp-message></p>
+                <div class="section-heading">
+                    <h2>{{rsvpTitle}}</h2>
+                    <p>{{rsvpDescription}}</p>
+                </div>
+
+                <div class="interaction-card">
+                    <input type="text" placeholder="اكتب اسمك" maxlength="60" data-rsvp-name />
+
+                    <div class="rsvp-options">
+                        <button type="button" data-rsvp-status="attending">سأحضر</button>
+                        <button type="button" data-rsvp-status="not_attending">لن أحضر</button>
+                        <button type="button" data-rsvp-status="maybe">ربما</button>
+                    </div>
+
+                    <p class="interaction-message" data-rsvp-message></p>
+                </div>
             </section>
 
-            <p class="closing" data-section="closing">{{closing}}</p>
+            <p class="closing" data-section="closing">
+                {{closing}}
+            </p>
+
         </section>
     </main>
 </body>
