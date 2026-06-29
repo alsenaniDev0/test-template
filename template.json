@@ -208,7 +208,7 @@
       "key": "title",
       "label": "العنوان",
       "type": "text",
-      "defaultValue": "عنوان التصميم tttt",
+      "defaultValue": "عنوان التصميم",
       "minLength": 3,
       "maxLength": 80,
       "visibleWhen": {
